@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const bodyParser = require("body-parser");
 
-const arr = ["Перезагрузите браузер, чтобы увидеть ваши события"];
+let arr = ["Обновите страницу браузера, чтобы увидеть ваши события"];
 
 app.use(express.static(path.join(__dirname, "public")));
 app.set("views", __dirname + "/public/views");
@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
+  arr = ["Обновите страницу браузера, чтобы увидеть ваши события"];
   res.render("index.html");
 });
 
@@ -95,8 +96,8 @@ app.post("/", (req, res) => {
         const events = res.data.items;
         if (events.length) {
           console.log("Upcoming 10 events:", events);
-          arr = ["Перезагрузите браузер, чтобы увидеть ваши события"];
-          arr.events.map((event) => {
+          arr = [];
+          events.map((event) => {
             arr.push(event);
           });
         } else {

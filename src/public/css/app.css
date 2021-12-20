@@ -17,12 +17,7 @@
   background-color: #f2f2f2;
   padding: 15px 30px;
 }
-span {
-  color: red;
-  margin-left: 20px;
-}
 
-input[type="email"],
 input[type="text"],
 select {
   width: 100%;
